@@ -861,7 +861,7 @@ write.csv(prediction5, file = 'prediction5.csv', row.names = F)
 ```
 *0.12445 from kaggle*
 
-###Weighted model
+###Weighted model - Lasso and Ridge
 ```{r}
 Weighted_model <- data.frame(Id = Id_labels, SalePrice = (prediction_ridge+3*prediction_lasso)/4)
 write.csv(Weighted_model, file = 'prediction6.csv', row.names = F)
@@ -883,7 +883,7 @@ write.csv(prediction8, file = "prediction8.csv", row.names = FALSE)
 ```
 *0.18084 from kaggle*
 
-__Regression Trees__
+##Regression Trees
 ```{r}
 library(tree)
 saleprice<-data$SalePrice[!is.na(data$SalePrice)]
@@ -957,3 +957,10 @@ prediction12<-data.frame(Id = Id_labels, SalePrice =  pred)
 write.csv(prediction12, file = "prediction12.csv", row.names = FALSE)
 ```
 *0.12553 from Kaggle*
+
+##Weighted model - Boost and Lasso
+```{r}
+Weighted_model2 <- data.frame(Id = Id_labels, SalePrice = (prediction_boost+3*prediction_lasso)/4)
+write.csv(Weighted_model2, file = 'prediction13.csv', row.names = F)
+```
+*0.11990 from Kaggle*
