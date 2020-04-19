@@ -798,6 +798,7 @@ cv.out <- cv.glmnet(X,y,alpha = 1, nfolds = 10)
 ridge_coef<-predict(cv.out, type = "coefficients", s = cv.out$lambda.min)
 length(ridge_coef[ridge_coef != 0]) #variable used
 length(ridge_coef[ridge_coef == 0]) #variable not used
+coef(cv.out, cv.out$lambda.min)
 ```
 ```{r}
 test.X <- as.matrix(test)
@@ -824,6 +825,7 @@ plot(cv.out)
 lasso_coef<-predict(cv.out, type = "coefficients", s = cv.out$lambda.min)
 length(lasso_coef[lasso_coef != 0]) #variable used
 length(lasso_coef[lasso_coef == 0]) #variable not used
+coef(cv.out, cv.out$lambda.min)
 ```
 ```{r}
 test.X <- as.matrix(test)
