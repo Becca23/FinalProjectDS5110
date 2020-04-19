@@ -960,7 +960,7 @@ write.csv(prediction12, file = "prediction12.csv", row.names = FALSE)
 
 ##Weighted model - Boost and Lasso
 ```{r}
-Weighted_model2 <- data.frame(Id = Id_labels, SalePrice = (prediction_boost+3*prediction_lasso)/4)
+Weighted_model2 <- data.frame(Id = Id_labels, SalePrice = (prediction_boost+prediction_ridge+2*prediction_lasso)/4)
 write.csv(Weighted_model2, file = 'prediction13.csv', row.names = F)
 ```
-*0.11990 from Kaggle*
+*0.11961 from Kaggle*
